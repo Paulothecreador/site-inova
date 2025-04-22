@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Inova Drogarias - Sua Saúde em Primeiro Lugar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d9230f;
+            /* Vermelho */
+            --secondary: #000000;
+            /* Preto */
+            --accent: #ffffff;
+            /* Branco */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary) !important;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .logo-header {
+            font-family: 'Arial Black', sans-serif;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-header span {
+            display: block;
+            line-height: 1;
+        }
+
+        .logo-header .rede {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .logo-header .inova {
+            font-size: 3.5rem;
+            font-weight: bolder;
+        }
+
+        .logo-header .drogarias {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(217, 35, 15, 0.85), rgba(217, 35, 15, 0.9)),
+                url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border: 1px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(217, 35, 15, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            width: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid white;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #b51d0d;
+            border-color: #b51d0d;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo-header">
+                    <span class="rede">REDE</span>
+                    <span class="inova">INOVA</span>
+                    <span class="drogarias">DROGARIAS</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#historia">História</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#localizacao">Localização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Principal -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Rede Inova Drogarias</h1>
+            <p class="lead mb-5">Cuidando da sua saúde com excelência e compromisso</p>
+            <div>
+                <a href="#contato" class="btn btn-light btn-lg px-4 me-3">Contato</a>
+                <a href="#servicos" class="btn btn-outline-light btn-lg px-4">Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Sobre Nós</h2>
+                    <p>Em 2011, motivados pelo desejo de gerar impacto positivo no setor farmacêutico, Alan e Lidiane
+                        fundaram a Rede Inova Drogarias em Governador Valadares, com foco em apoiar farmácias
+                        independentes por meio de melhores condições de compra, capacitação e soluções inovadoras.</p>
+                    <p>Seguindo a estratégia do oceano azul, a rede cresceu e, em 13 anos, expandiu-se para 15 estados
+                        com mais de 650 unidades licenciadas, oferecendo uma infraestrutura moderna, equipe dedicada e
+                        compromisso com a saúde, bem-estar e sucesso dos parceiros, tornando-se referência no mercado
+                        farmacêutico.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Farmácia Rede Inova" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nossos Serviços</h2>
+                <p class="lead text-muted">Conheça nossos serviços farmacêuticos especializados</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <h4>Medicamentos</h4>
+                            <p>Ampla variedade de medicamentos com orientação farmacêutica especializada.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h4>Check-up</h4>
+                            <p>Aferição de pressão arterial, glicemia e outros exames rápidos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-syringe"></i>
+                            </div>
+                            <h4>Aplicações</h4>
+                            <p>Aplicação de injetáveis com segurança e profissionalismo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4>Entrega</h4>
+                            <p>Entrega em domicílio rápida e segura de seus medicamentos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h4>Pediatria</h4>
+                            <p>Seção especializada em medicamentos e cuidados infantis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4>Orientação</h4>
+                            <p>Consultoria farmacêutica personalizada para suas dúvidas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- História -->
+    <section id="historia" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nossa História</h2>
+                <p class="lead text-muted">Uma trajetória de dedicação à saúde da comunidade</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2011</div>
+                    <h4>Fundação</h4>
+                    <p>Alan e Lidiane identificam a necessidade no varejo farmacêutico e fundam a Rede Inova Drogarias
+                        em Governador Valadares, iniciando as atividades em setembro.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2011–2024</div>
+                    <h4>Expansão</h4>
+                    <p>A rede cresce seguindo a estratégia do oceano azul, oferecendo soluções inovadoras, capacitação e
+                        suporte a farmácias independentes.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <h4>Consolidação</h4>
+                    <p>A Inova Drogarias atua em 15 estados, com mais de 650 unidades licenciadas, uma infraestrutura
+                        moderna e uma equipe de mais de 70 colaboradores, tornando-se referência no setor farmacêutico.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section id="localizacao" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Onde Estamos</h2>
+                    <p class="lead">Visite nossa unidade</p>
+                    <p><strong>Endereço:</strong> Rua Professora Gabriela Varela, 651 - Floramar - Belo Horizonte/MG</p>
+
+                    <h5 class="mt-4">Horário de Funcionamento:</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Segunda a Sexta:</strong> 8h às 22h</li>
+                        <li><strong>Sábados:</strong> 9h às 20h</li>
+                        <li><strong>Domingos e Feriados:</strong> 10h às 16h</li>
+                    </ul>
+
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Unidade Central funciona 24h para emergências
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.997069709849!2d-43.99158392468728!3d-19.92437198154242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699f1e2a0e1a5%3A0x5b4a8a7a8a6b5b5b!2sR.%20Prof.%20Gabriela%20Varela%2C%20651%20-%20Floramar%2C%20Belo%20Horizonte%20-%20MG%2C%2030573-170!5e0!3m2!1spt-BR!2sbr!4v1718900000000!5m2!1spt-BR!2sbr"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Fale Conosco</h2>
+                <p class="lead text-muted">Estamos à disposição para melhor atendê-lo</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h4 class="mb-4">Informações de Contato</h4>
+
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <strong>Endereço:</strong> Rua Professora Gabriela Varela, 651 - Floramar - Belo
+                            Horizonte/MG
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <strong>Telefone:</strong> (31) 98931-6089
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>
+                            <strong>WhatsApp:</strong> (31) 97352-5529
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <strong>Email:</strong> paulovhs0@gmail.com
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Atendimento:</strong> Seg-Sex 8h-22h | Sáb 9h-20h
+                        </li>
+                    </ul>
+
+                    <h5 class="mt-5 mb-3">Redes Sociais</h5>
+                    <div>
+                        <a href="https://wa.me/5531973525529" class="social-icon" target="_blank"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/drogarias.redeinova/" class="social-icon" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form action="https://formsubmit.co/paulovhs0@gmail.com" method="POST" class="needs-validation"
+                        novalidate>
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nome Completo *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe seu nome.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe um email válido.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subject" class="form-label">Assunto *</label>
+                                <select class="form-select" id="subject" name="subject" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="duvida">Dúvida</option>
+                                    <option value="orcamento">Orçamento</option>
+                                    <option value="sugestao">Sugestão</option>
+                                    <option value="reclamacao">Reclamação</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione um assunto.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Mensagem *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, escreva sua mensagem.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Desejo receber promoções e novidades por email
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary px-4 py-2">
+                                    <i class="fas fa-paper-plane me-2"></i> Enviar Mensagem
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="logo-header text-white">
+                        <span class="rede">REDE</span>
+                        <span class="inova">INOVA</span>
+                        <span class="drogarias">DROGARIAS</span>
+                    </div>
+                    <p class="mt-3">Sua saúde é nossa prioridade. Atendimento farmacêutico com excelência e humanização.
+                    </p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#sobre" class="text-white-50">Sobre Nós</a></li>
+                        <li class="mb-2"><a href="#servicos" class="text-white-50">Serviços</a></li>
+                        <li class="mb-2"><a href="#localizacao" class="text-white-50">Localização</a></li>
+                        <li class="mb-2"><a href="#contato" class="text-white-50">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p class="text-white-50">Cadastre-se para receber nossas promoções</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Seu email">
+                            <button class="btn btn-primary" type="button">Cadastrar</button>
+                        </div>
+                    </form>
+                    <div>
+                        <a href="https://wa.me/5531973525529" class="social-icon" target="_blank"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/drogarias.redeinova/" class="social-icon" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">&copy; 2024 Rede Inova Drogarias. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small">Desenvolvido com <i class="fas fa-heart text-danger"></i> para sua saúde</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Validação do formulário
+        (function () {
+            'use strict'
+
+            var forms = document.querySelectorAll('.needs-validation')
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+        // Rolagem suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault()
+
+                const target = document.querySelector(this.getAttribute('href'))
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
